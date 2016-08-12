@@ -29,7 +29,7 @@ after_initialize do
   UsernameValidator.class_eval do
     def username_char_valid?
       return unless errors.empty?
-      if username =~ /[^\w\u4E00-\u9FD5\u3400-\u4DBF\u{20000}-\u{2A6DF}\u{2A700}-\u{2CEAF}\uF900-\uFAFF\u{2F800}-\u{2FA1D}\uAC00-\uD7AF\u3040-\u30FF\u31F0-\u31FF\u{1B000}-\u{1B0FF}\u3005.-]/
+      if username =~ /[^\w\u4E00-\u9FD5\u3400-\u4DBF\u{20000}-\u{2A6DF}\u{2A700}-\u{2CEAF}\uF900-\uFAFF\u{2F800}-\u{2FA1D}\uAC00-\uD7AF\u3040-\u30FF\u31F0-\u31FF\u{1B000}-\u{1B0FF}\u3005\.\-]/
         self.errors << I18n.t(:'user.username.characters')
       end
     end
