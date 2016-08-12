@@ -29,21 +29,21 @@ after_initialize do
   UsernameValidator.class_eval do
     def username_char_valid?
       return unless errors.empty?
-      if username =~ /[^\w\u4E00-\u9FD5\u3400-\u4DBF\u{20000}-\u{2A6DF}\u{2A700}-\u{2CEAF}\uF900-\uFAFF\u{2F800}-\u{2FA1D}\uAC00-\uD7AF\u3040-\u30FF\u31F0-\u31FF\u{1B000}-\u{1B0FF}\u3005.-]/
+      if username =~ /(?:[\0-,/:-@\[-\^`\{-\u3004\u3006-\u303F\u3100-\u31EF\u3200-\u33FF\u4DC0-\u4DFF\u9FD6-\uABFF\uD7B0-\uD7FF\uE000-\uF8FF\uFB00-\uFFFF]|[\uD800-\uD82B\uD82D-\uD83F\uD874-\uD87D\uD87F-\uDBFF][\uDC00-\uDFFF]|\uD82C[\uDD00-\uDFFF]|\uD869[\uDEE0-\uDEFF]|\uD873[\uDEB0-\uDFFF]|\uD87E[\uDE1E-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/
         self.errors << I18n.t(:'user.username.characters')
       end
     end
 
     def username_first_char_valid?
       return unless errors.empty?
-      if username[0] =~ /[^\w\u4E00-\u9FD5\u3400-\u4DBF\u{20000}-\u{2A6DF}\u{2A700}-\u{2CEAF}\uF900-\uFAFF\u{2F800}-\u{2FA1D}\uAC00-\uD7AF\u3040-\u30FF\u31F0-\u31FF\u{1B000}-\u{1B0FF}\u3005]/
+      if username[0] =~ /(?:[\0-/:-@\[-\^`\{-\u3004\u3006-\u303F\u3100-\u31EF\u3200-\u33FF\u4DC0-\u4DFF\u9FD6-\uABFF\uD7B0-\uD7FF\uE000-\uF8FF\uFB00-\uFFFF]|[\uD800-\uD82B\uD82D-\uD83F\uD874-\uD87D\uD87F-\uDBFF][\uDC00-\uDFFF]|\uD82C[\uDD00-\uDFFF]|\uD869[\uDEE0-\uDEFF]|\uD873[\uDEB0-\uDFFF]|\uD87E[\uDE1E-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/
         self.errors << I18n.t(:'user.username.must_begin_with_alphanumeric')
       end
     end
 
     def username_last_char_valid?
       return unless errors.empty?
-      if username[-1] =~ /[^\w\u4E00-\u9FD5\u3400-\u4DBF\u{20000}-\u{2A6DF}\u{2A700}-\u{2CEAF}\uF900-\uFAFF\u{2F800}-\u{2FA1D}\uAC00-\uD7AF\u3040-\u30FF\u31F0-\u31FF\u{1B000}-\u{1B0FF}\u3005]/
+      if username[-1] =~  /(?:[\0-/:-@\[-\^`\{-\u3004\u3006-\u303F\u3100-\u31EF\u3200-\u33FF\u4DC0-\u4DFF\u9FD6-\uABFF\uD7B0-\uD7FF\uE000-\uF8FF\uFB00-\uFFFF]|[\uD800-\uD82B\uD82D-\uD83F\uD874-\uD87D\uD87F-\uDBFF][\uDC00-\uDFFF]|\uD82C[\uDD00-\uDFFF]|\uD869[\uDEE0-\uDEFF]|\uD873[\uDEB0-\uDFFF]|\uD87E[\uDE1E-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/
         self.errors << I18n.t(:'user.username.must_end_with_alphanumeric')
       end
     end
