@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sed -i 's/^USERNAME_ROUTE_FORMAT =.*$/USERNAME_ROUTE_FORMAT = \/[A-Za-z0-9\\_.\\-\\%\\u4E00-\\u9FD5\\u3400-\\u4DBF\\u{20000}-\\u{2A6DF}\\u{2A700}-\\u{2CEAF}\\uF900-\\uFAFF\\u{2F800}-\\u{2FA1D}\\uAC00-\\uD7AF\\u3040-\\u30FF\\u31F0-\\u31FF\\u3005]+\/ unless defined? USERNAME_ROUTE_FORMAT/' ../config/routes.rb
+sed -i 's/^USERNAME_ROUTE_FORMAT =.*$/USERNAME_ROUTE_FORMAT = \/[A-Za-z0-9\\_.\\-\\%\\u{4E00}-\\u{9FD5}\\u{3400}-\\u{4DBF}\\u{20000}-\\u{2A6DF}\\u{2A700}-\\u{2CEAF}\\u{F900}-\\u{FAFF}\\u{2F800}-\\u{2FA1D}\\u{AC00}-\\u{D7AF}\\u{3040}-\\u{30FF}\\u{31F0}-\\u{31FF}\\u{3005}]+\/ unless defined? USERNAME_ROUTE_FORMAT/' ../config/routes.rb
 sed -i 's/^\s*username =.*$/    username = username.toString().replace(\/(?:[\\0-,\/:-@\\[-\\^`\\{-\\u3004\\u3006-\\u303F\\u3100-\\u31EF\\u3200-\\u33FF\\u4DC0-\\u4DFF\\u9FD6-\\uABFF\\uD7B0-\\uD7FF\\uE000-\\uF8FF\\uFB00-\\uFFFF]|[\\uD800-\\uD83F\\uD874-\\uD87D\\uD87F-\\uDBFF][\\uDC00-\\uDFFF]|\\uD869[\\uDEE0-\\uDEFF]|\\uD873[\\uDEB0-\\uDFFF]|\\uD87E[\\uDE1E-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])\/g, "");/' ../app/assets/javascripts/discourse/controllers/user-card.js.es6
 sed -i 's/^\s*characters:.*$/      characters: "必须只包含中文、字母、数字和下划线"/' ../config/locales/server.zh_CN.yml
 sed -i 's/^\s*must_begin_with_alphanumeric:.*$/      must_begin_with_alphanumeric: "必须以中文、字母、数字或下划线开头"/' ../config/locales/server.zh_CN.yml
