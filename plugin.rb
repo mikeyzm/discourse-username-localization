@@ -50,6 +50,10 @@ after_initialize do
   end
 
   UserNameSuggester.class_eval do
+    def self.fix_username(name)
+      rightsize_username(name)
+    end
+
     def self.sanitize_username(name)
       name = ActiveSupport::Inflector.transliterate(name)
       # 1. replace characters that aren't allowed with '_'
