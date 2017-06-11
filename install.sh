@@ -16,4 +16,5 @@ sed -i 's/^\s*matcher:.*$/  matcher: \/^#((?:[\\-0-9A-Z_a-z\\u017F\\u212A\\u3005
 
 
 ## Misc - discobot
-sed -i 's/^\s*SEARCH_ANSWER =.*$/SEARCH_ANSWER = I18n.t("discourse_narrative_bot.x_temp_search_answer")/' ../plugins/discourse-narrative-bot/lib/discourse_narrative_bot/new_user_narrative.rb
+#sed -i 's/^\s*SEARCH_ANSWER =.*$/SEARCH_ANSWER = I18n.t("discourse_narrative_bot.x_temp_search_answer")/' ../plugins/discourse-narrative-bot/lib/discourse_narrative_bot/new_user_narrative.rb
+sed -i 's/^.*if.*match.*SEARCH_ANSWER.*$/if @post.raw.match(\/#{I18n.t("discourse_narrative_bot.x_temp_search_answer")}\/)/' ../plugins/discourse-narrative-bot/lib/discourse_narrative_bot/new_user_narrative.rb
